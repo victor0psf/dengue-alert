@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlertDengueApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1eb71d732b5b8a28a7eae0cd9d5d32972d6dc666")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed8e36f851c2f7774c0b26af83eade0224c794f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlertDengueApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlertDengueApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
