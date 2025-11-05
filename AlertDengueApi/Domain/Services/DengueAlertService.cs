@@ -71,5 +71,10 @@ namespace AlertDengueApi.Services
         {
             return await _repository.GetByWeekAsync(epidemiologicalWeek, epidemiologicalYear);
         }
+
+        public async Task<IEnumerable<DengueAlert>> GetAllAlertsAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
     }
 }

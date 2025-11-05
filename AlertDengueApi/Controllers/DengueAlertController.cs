@@ -12,7 +12,7 @@ using AlertDengueApi.Services;
 namespace AlertDengueApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/dengue")]
     public class DengueAlertController : ControllerBase
     {
         private readonly IDengueAlertService _dengueAlertService;
@@ -62,6 +62,21 @@ namespace AlertDengueApi.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error occurred while retrieving dengue alert.");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllAlerts()
+        {
+            try
+            {
+                var alerts = await _dengueAlertService.GetAllAlertsAsync();
+                return Ok(alerts);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving all dengue alerts.");
                 return StatusCode(500, "Internal server error");
             }
         }

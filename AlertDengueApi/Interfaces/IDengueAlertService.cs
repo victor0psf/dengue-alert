@@ -10,5 +10,6 @@ namespace AlertDengueApi.Interfaces
     {
         Task<IEnumerable<DengueAlert>> FetchAndSaveLastSixMonthsAsync();
         Task<DengueAlert?> GetAlertByWeekAsync(int week, int year);
+        Task<IEnumerable<DengueAlert>> GetAllAlertsAsync();
     }
 }

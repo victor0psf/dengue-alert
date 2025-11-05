@@ -1,0 +1,41 @@
+<h2>Sync Dengue Alerts</h2>
+
+<button (click)="sync()" [disabled]="loading">Start Sync</button>
+
+<div *ngIf="loading">Sincronizando...</div>
+<div *ngIf="message" class="alert alert-success">
+  {{ message }} ({{ count }})
+</div>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+<hr />
+
+<!-- Mostrar todos os alertas recebidos -->
+<table *ngIf="alerts.length" class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>Semana (SE)</th>
+      <th>Ano</th>
+      <th>Estimado</th>
+      <th>Min</th>
+      <th>Max</th>
+      <th>Reportado</th>
+      <th>Nível</th>
+      <th>Modelo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of alerts">
+      <td>{{ a.SE }}</td>
+      <td>{{ a.epidemiologicalYear }}</td>
+      <td>{{ a.casos_est }}</td>
+      <td>{{ a.casos_est_min }}</td>
+      <td>{{ a.casos_est_max }}</td>
+      <td>{{ a.casos }}</td>
+      <td>{{ a.nivel }}</td>
+      <td>{{ a.versao_modelo }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="!alerts.length && !loading">Nenhum dado encontrado.</p>

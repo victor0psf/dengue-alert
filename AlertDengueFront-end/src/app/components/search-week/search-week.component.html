@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <h3>Buscar Semana Epidemiológica</h3>
+
+  <div class="row mt-3">
+    <div class="col-3">
+      <label>Semana (SE)</label>
+      <input
+        type="number"
+        [(ngModel)]="week"
+        class="form-control"
+        placeholder="Ex: 42"
+      />
+    </div>
+    <div class="col-3">
+      <label>Ano</label>
+      <input
+        type="number"
+        [(ngModel)]="year"
+        class="form-control"
+        placeholder="Ex: 2025"
+      />
+    </div>
+    <div class="col-3 d-flex align-items-end">
+      <button
+        class="btn btn-primary w-100"
+        (click)="search()"
+        [disabled]="loading"
+      >
+        {{ loading ? "Buscando..." : "Buscar" }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+
+  <div *ngIf="result" class="card mt-4">
+    <div class="card-body">
+      <h5 class="card-title">
+        Semana {{ result.SE }} / {{ result.epidemiologicalYear }}
+      </h5>
+      <p><strong>Casos Estimados:</strong> {{ result.casos_est }}</p>
+      <p><strong>Casos Reportados:</strong> {{ result.casos }}</p>
+      <p><strong>Nível de Alerta:</strong> {{ result.nivel }}</p>
+      <small class="text-muted"
+        >Versão Modelo: {{ result.versao_modelo }}</small
+      >
+    </div>
+  </div>
+</div>

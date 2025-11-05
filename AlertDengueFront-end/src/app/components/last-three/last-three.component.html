@@ -1,0 +1,54 @@
+<div class="container last-three">
+  <h3>Last 3 Epidemiological Weeks</h3>
+
+  <div *ngIf="loading" class="my-3">Loading...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="cards-row" *ngIf="!loading && lastThree?.length">
+    <div class="card week-card" *ngFor="let a of lastThree">
+      <div class="card-body">
+        <h5 class="card-title">Week: {{ a.SE }}</h5>
+        <p class="card-text">
+          <strong>Estimated:</strong> {{ a.casos_est ?? "-" }}<br />
+          <strong>Reported:</strong> {{ a.casos ?? "-" }}<br />
+          <strong>Alert level:</strong> {{ a.nivel ?? "-" }}
+        </p>
+        <small class="text-muted">Model: {{ a.versao_modelo }}</small>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mt-4">Detailed Table (Latest 3)</h4>
+  <table class="table table-striped" *ngIf="lastThree?.length">
+    <thead>
+      <tr>
+        <th>Week (SE)</th>
+        <th>Year</th>
+        <th>Estimated</th>
+        <th>Reported</th>
+        <th>Alert level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of lastThree">
+        <td>{{ a.SE }}</td>
+        <td>
+          {{
+            a.epidemiologicalYear && a.epidemiologicalYear > 0
+              ? a.epidemiologicalYear
+              : a.SE
+              ? Math.floor(a.SE / 100)
+              : "-"
+          }}
+        </td>
+        <td>{{ a.casos_est }}</td>
+        <td>{{ a.casos }}</td>
+        <td>{{ a.nivel }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!lastThree || lastThree.length === 0" class="text-muted">
+    No data yet. Try sync first.
+  </div>
+</div>

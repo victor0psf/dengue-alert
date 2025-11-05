@@ -1,0 +1,11 @@
+.last-three {
+  padding: 12px;
+}
+.cards-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.week-card {
+  width: 300px;
+}
