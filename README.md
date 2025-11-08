@@ -1,4 +1,4 @@
-# AlertDengue
+# Dengue Alert
 
 Aplicação full-stack (ASP.NET Core + Angular) para consultar, armazenar e visualizar alertas epidemiológicos de dengue de Belo Horizonte (geocode `3106200`) fornecidos pela API pública [info.dengue](https://info.dengue.mat.br/).
 
